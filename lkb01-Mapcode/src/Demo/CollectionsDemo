@@ -1,0 +1,37 @@
+package com.lkbhua.Demo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class CollectionsDemo {
+    public static void main(String[] args) {
+        /*
+            public static <T> boolean addAll(Collections<T> c,T...elements)  批量添加元素
+            public static void shuffle(Collections<?> c)  打乱List集合的顺序
+            public static <T> void sort(List<T> list, Collections<T> c)  将指定的规则List集合中的元素进行排序
+            public static <T> void sort(List<T> list)  将List集合中的元素进行排序
+            public static <T> int binarySearch(List<T> list, T key)  二分查找
+            public static <T> void copy(List<T> dest,List<T> src)  将src集合中的元素复制到dest集合中
+            public static <T> int fill(List<T> list,T obj)  用指定的元素填充List集合
+            public static <T> void max/min(List<T> list)  返回List集合中的最大/最小元素
+            public static <T> void swap(List<?> list,int i,int j)  交换List集合中i和j位置的元素
+         */
+        // 1、创建集合对象
+        ArrayList<String> list = new ArrayList<>();
+
+        // 2、批量添加元素
+        // public static <T> boolean addAll(Collections<T> c,T...elements)
+        Collections.addAll(list,"张三","李四","王五","赵六","田七","王八","王九","王十");
+
+        // 3、打印集合
+        System.out.println(list);
+
+        // 4、打乱集合的顺序
+        // public static void shuffle(Collections<?> c)
+        Collections.shuffle(list);
+
+        System.out.println(list);
+
+    }
+
+}
