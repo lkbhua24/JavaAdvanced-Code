@@ -1,0 +1,51 @@
+package com.lkbhua.Demo;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*Map集合的遍历方式1——键找值*/
+
+        // 1、创建Map集合
+        Map<String, String> map = new HashMap<>();
+
+        // 2、添加元素
+        map.put("001", "张三");
+        map.put("002", "李四");
+        map.put("003", "王五");
+
+        // 3、遍历方式一：键找值
+        // ① 获取所有的键，把这些键放到一个Set集合中
+        // Ctrl+Alt+V ： 自动生成变量
+        Set<String> keySet = map.keySet();
+        // ② 遍历单列set集合，得到每一个键
+        // 增强for循环
+        for (String key : keySet) {
+            // ③ 通过键，获取值
+            String value = map.get(key);
+            System.out.println(key + "=" + value);
+        }
+
+        // 迭代器循环
+        Iterator<String> iterator = keySet.iterator();
+        while (iterator.hasNext()) {
+            String key = iterator.next();
+            String value = map.get(key);
+            System.out.println(key + "=" + value);
+        }
+        System.out.println("--------------------------------");
+
+        // 利用Lambda表达式
+        keySet.forEach(key -> {
+            String value = map.get(key);
+            System.out.println(key + "=" + value);
+            System.out.println("--------------------------------");
+        });
+
+
+
+    }
+}
