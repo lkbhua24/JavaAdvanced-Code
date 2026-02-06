@@ -1,0 +1,59 @@
+package com.lkbhua.Demo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /*
+            V put(K key , V value)                  添加元素
+            V remove(Object key)                    根据键删除键值对元素
+            void clear()                            移除所有的键值对元素
+            boolean containsKey(Object key)         判断集合是否包含指定的键
+            boolean containsValue(Object Value)     判断集合是否包含指定的键
+            boolean isEmpty()                       判断集合是否为空
+            int size()                              集合的长度，也就是集合中键值对的个数
+         */
+
+        // 1、创建Map集合对象
+        Map<String,String> map = new HashMap<>();
+
+        // 2、添加元素
+        // V put(K key , V value)                  添加元素
+        // put()细节：
+        // 添加/覆盖
+        // 在添加的时候，如果添加的键已经存在，那么会覆盖原来的值
+        // 并且将被覆盖的值进行返回。
+        // 在添加的时候，如果添加的键不存在，那么添加键值对元素
+        map.put("lkbHua","zengQ");
+        map.put("西红柿","鸡蛋");
+        map.put("豆浆","油条");
+
+
+        // 3、打印集合
+        System.out.println(map);
+
+        // 4、删除元素
+        // V remove(Object key)
+        String remove = map.remove("西红柿");
+        System.out.println(remove);
+
+        // 5、清空集合
+        // 没有返回值
+        map.clear();
+
+        // 6、判断是否包含
+        map.put("西红柿","鸡蛋");
+        boolean containsKey = map.containsKey("西红柿");
+        System.out.println(containsKey);
+
+        // 7、判断是否为空
+        boolean empty = map.isEmpty();
+        System.out.println(empty);
+
+        // 8、获取集合的长度
+        int size = map.size();
+        System.out.println(size);
+
+    }
+}
