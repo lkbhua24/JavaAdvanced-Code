@@ -1,0 +1,47 @@
+package com.lkbhua.Demo;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class demo3 {
+    public static void main(String[] args) {
+        /*Map集合的遍历方式2——键值对*/
+
+        // 1、创建Map集合
+        Map<String, String> map = new HashMap<>();
+
+        // 2、添加键值对
+        map.put("张三", "001");
+        map.put("李四", "002");
+        map.put("老五", "003");
+
+        // 3、遍历方式2——通过键值对
+        // 3.1 Entry是Map里面的内部接口
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+
+        // 3.2 遍历entrySet集合，去得到每一个键值对
+        // 增强for
+        for (Map.Entry<String, String> entry : entrySet) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+
+        System.out.println("--------------------------------");
+
+        // 迭代器
+        Iterator<Map.Entry<String, String>> iterator = entrySet.iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+        System.out.println("--------------------------------");
+
+        // Lambda
+        entrySet.forEach(entry -> {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        });
+
+        System.out.println("--------------------------------");
+    }
+}
