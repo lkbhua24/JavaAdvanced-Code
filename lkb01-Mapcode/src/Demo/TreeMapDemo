@@ -1,0 +1,39 @@
+package com.lkbhua.Demo;
+
+import java.util.Comparator;
+import java.util.TreeMap;
+
+public class TreeMapDemo {
+    public static void main(String[] args) {
+        /*
+            TreeMap集合：基本应用
+            需求1：
+                键：整数表示id
+                值：字符串表示商品名称
+                要求：按照id的升序排序、按照id的降序排序
+        */
+
+        // 1、创建TreeMap集合
+        TreeMap<Integer, String> treeMap = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                // o1 : 当前要添加的元素
+                // o2 : 集合中已经存在的元素
+                return o2 - o1;
+            }
+        });
+
+        // 2、添加元素
+        treeMap.put(1, "达利园");
+        treeMap.put(2, "奥利给");
+        treeMap.put(3, "掌心教");
+        treeMap.put(5, "康帅傅");
+        treeMap.put(4, "筋脉蓝");
+
+        // 3、打印
+        System.out.println(treeMap);
+
+        // Integer Double 默认情况下都是按照升序排序的
+        // String 按照字母在ASCII码表中的大小(升序)进行排序
+    }
+}
