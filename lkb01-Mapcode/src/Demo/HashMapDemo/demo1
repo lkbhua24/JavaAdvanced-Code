@@ -1,0 +1,19 @@
+package com.lkbhua.Demo.HashMapDemo;
+
+import java.util.HashMap;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /* HashMap底层原理介绍 */
+
+        // ctrl + B : 查看底层源码
+        // ctrl + F12 : 查看原型
+        HashMap<String, String> map = new HashMap<>();
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        map.put("e", "5");
+
+    }
+}
