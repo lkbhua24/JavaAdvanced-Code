@@ -1,0 +1,64 @@
+package com.lkbhua.Demo.TreeMapTest2;
+
+import java.util.StringJoiner;
+import java.util.TreeMap;
+
+public class test {
+    public static void main(String[] args) {
+        /* 需求：
+           字符串“abcbbcabcbabcababcae”
+           请统计字符串中每一个字符出现的次数，并按照以下格式输出
+           输出结果：
+           a(6) b(8) c(5) e(1)
+
+           分析:
+                统计 ----> 计算器思想
+                弊端：如果我们统计的变量过多，那么代码量就会非常多
+                优化：
+                新的统计思想： 利用map集合进行统计
+                HashMap：默认
+                TreeMap：要排序就选这个
+        */
+
+        // 1、创建一个字符串
+        String str = "abcbbcabcbabcababcae";
+
+        // 创建集合
+        TreeMap<Character, Integer> tm = new TreeMap<>();
+
+        // 2、遍历字符串得到里面的每一个字符
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            // 拿着c到集合中判断
+            // 存在，次数+1
+            // 不存在，首次出现
+            if(tm.containsKey(c)){
+                Integer count = tm.get(c);
+                count++;
+                tm.put(c,count);
+            }else{
+                tm.put(c,1);
+            }
+        }
+
+        // 4、遍历集合
+        for(Character key : tm.keySet()){
+            Integer value = tm.get(key);
+            System.out.println(key + "(" + value + ")");
+        }
+        System.out.println("-----------------------");
+
+        // 利用StringBuilder
+        StringBuilder sb = new StringBuilder();
+        tm.forEach((k,v)->sb.append( k).append("(").append( v).append(")").append(" "));
+        System.out.println(sb);
+        System.out.println("-----------------------");
+
+
+        // 利用StringJoiner
+        // 指定开始标记、结束标记、分隔符
+        StringJoiner sj = new StringJoiner("","","");
+        tm.forEach((k,v)->sj.add( k+"").add("(").add( v+"").add(")").add(" "));
+        System.out.println(sj);
+    }
+}
